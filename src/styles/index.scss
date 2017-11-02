@@ -37,7 +37,7 @@ $toolbar-offset: 0;
 @import 'popup';
 @import 'map';
 @import 'react-collapse';
-
+@import '../../node_modules/@mapbox/github-file-browser/treeui.css';
 /**
  * Hacks for webdriverio isVisibleWithinViewport
  */

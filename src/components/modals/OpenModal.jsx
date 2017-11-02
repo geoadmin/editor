@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import LoadingModal from './LoadingModal'
 import Modal from './Modal'
+import GitHubSection from './GitHubSection'
 import Button from '../Button'
 import FileReaderInput from 'react-file-reader-input'
 import request from 'request'
-
 import FileUploadIcon from 'react-icons/lib/md/file-upload'
 import AddIcon from 'react-icons/lib/md/add-circle-outline'
-
 import style from '../../libs/style.js'
 import publicStyles from '../../config/styles.json'
 
@@ -174,7 +173,13 @@ class OpenModal extends React.Component {
           <Button className="maputnik-upload-button"><FileUploadIcon /> Upload</Button>
         </FileReaderInput>
       </section>
-
+      <section className="maputnik-modal-section">
+        <h2>Load from Github</h2>
+        <GitHubSection allowFileCreation={false} onStyleOpen={(data) => {
+          this.props.onStyleOpen(data);
+          this.onOpenToggle();
+        }} />
+      </section>
       <section className="maputnik-modal-section">
         <h2>Load from URL</h2>
         <p>

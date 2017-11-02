@@ -93,6 +93,7 @@ export default class Toolbar extends React.Component {
         open: false,
         add: false,
         export: false,
+        github: false
       }
     }
   }
@@ -146,6 +147,10 @@ export default class Toolbar extends React.Component {
             <HelpIcon />
             <IconText>Help</IconText>
           </ToolbarLink>
+          <ToolbarAction wdKey="nav:github" onClick={this.props.onToggleModal.bind(this, 'github')}>
+            <SourcesIcon />
+            <IconText>Save github</IconText>
+          </ToolbarAction>
         </div>
       </div>
     </div>

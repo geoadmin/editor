@@ -9,7 +9,7 @@ COPY . ${HOME}/
 
 WORKDIR ${HOME}
 
-RUN npm install -d --dev
+RUN npm install
 RUN npm run build
 
 CMD npm run start -- --host 0.0.0.0

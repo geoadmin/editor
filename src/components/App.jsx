@@ -18,6 +18,7 @@ import ExportModal from './modals/ExportModal'
 import SourcesModal from './modals/SourcesModal'
 import OpenModal from './modals/OpenModal'
 import ShortcutsModal from './modals/ShortcutsModal'
+import GitHubModal from './modals/GitHubModal'
 
 import { downloadGlyphsMetadata, downloadSpriteMetadata } from '../libs/metadata'
 import * as styleSpec from '@mapbox/mapbox-gl-style-spec/style-spec'
@@ -68,6 +69,7 @@ export default class App extends React.Component {
       "d": 68,
       "i": 73,
       "m": 77,
+      "g": 71
     }
 
     const shortcuts = [
@@ -99,6 +101,12 @@ export default class App extends React.Component {
         keyCode: keyCodes["s"],
         handler: () => {
           this.toggleModal("settings");
+        }
+      },
+      {
+        keyCode: keyCodes["g"],
+        handler: () => {
+          this.toggleModal("github");
         }
       },
       {
@@ -172,6 +180,7 @@ export default class App extends React.Component {
         open: false,
         shortcuts: false,
         export: false,
+        github: false
       },
       mapOptions: {
         showTileBoundaries: queryUtil.asBool(queryObj, "show-tile-boundaries")
@@ -527,6 +536,12 @@ export default class App extends React.Component {
         onStyleChanged={this.onStyleChanged.bind(this)}
         isOpen={this.state.isOpen.sources}
         onOpenToggle={this.toggleModal.bind(this, 'sources')}
+      />
+      <GitHubModal
+        mapStyle={this.state.mapStyle}
+        onStyleChanged={this.onStyleChanged.bind(this)}
+        isOpen={this.state.isOpen.github}
+        onOpenToggle={this.toggleModal.bind(this, 'github')}
       />
     </div>
 
